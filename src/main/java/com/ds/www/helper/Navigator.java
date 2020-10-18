@@ -5,7 +5,6 @@ import com.ds.www.domain.Orientation;
 
 public class Navigator {
 
-
     Orientation findOrientation( Move move, Orientation currentOrientation){
     switch (move){
         case LEFT: return Mover.moveLeft(currentOrientation);
@@ -14,4 +13,6 @@ public class Navigator {
         default: return currentOrientation;
     }
     }
+
+
 }
