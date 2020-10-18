@@ -3,7 +3,7 @@ package com.ds.www.helper;
 import com.ds.www.domain.Orientation;
 
 public class Mover {
-    Orientation moveRight(Orientation orientation){
+    static Orientation moveRight(Orientation orientation){
         switch (orientation){
             case NORTH: return Orientation.EAST;
             case SOUTH: return Orientation.WEST;
@@ -13,7 +13,7 @@ public class Mover {
         }
     }
 
-    Orientation moveLeft(Orientation orientation){
+    static Orientation moveLeft(Orientation orientation){
         switch (orientation){
             case NORTH: return Orientation.WEST;
             case SOUTH: return Orientation.EAST;
@@ -23,7 +23,11 @@ public class Mover {
         }
     }
 
-    int[] moveForward(int xCordinate, int yCordinate, Orientation orientation){
+    static Orientation moveForward(Orientation orientation){
+        return orientation;
+    }
+
+    static int[] moveForwardWithCordinates(int xCordinate, int yCordinate, Orientation orientation){
         switch (orientation){
             case NORTH: yCordinate = yCordinate + 1;
             break;
