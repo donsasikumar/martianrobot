@@ -1,4 +1,4 @@
-package com.ds.www;
+package com.ds.www.helper;
 
 import com.ds.www.domain.Orientation;
 
@@ -21,5 +21,20 @@ public class Mover {
             case WEST: return Orientation.SOUTH;
             default:return orientation;
         }
+    }
+
+    int[] moveForward(int xCordinate, int yCordinate, Orientation orientation){
+        switch (orientation){
+            case NORTH: yCordinate = yCordinate + 1;
+            break;
+            case SOUTH: yCordinate = yCordinate - 1;
+            break;
+            case EAST: xCordinate = xCordinate + 1;
+            break;
+            case WEST: xCordinate = xCordinate - 1;
+            break;
+            default: break;
+        }
+        return new int[]{xCordinate,yCordinate};
     }
 }
