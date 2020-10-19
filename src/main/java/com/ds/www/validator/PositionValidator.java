@@ -4,7 +4,7 @@ import java.util.List;
 
 public class PositionValidator {
 
-    static boolean isOnGrid(int xCordinate,
+    public static boolean isOnGrid(int xCordinate,
                      int yCordinate,
                      int xMax,
                      int yMax) {
@@ -14,7 +14,7 @@ public class PositionValidator {
                 || (yCordinate > yMax) ? false : true;
     }
 
-    static boolean isLostPosition(int xCordinate, int yCordinate, List<String> lostPositions) {
+    public static boolean isLostPosition(int xCordinate, int yCordinate, List<String> lostPositions) {
         return lostPositions.contains(xCordinate + "" + yCordinate);
     }
 

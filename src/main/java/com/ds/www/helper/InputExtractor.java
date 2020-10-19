@@ -1,7 +1,5 @@
 package com.ds.www.helper;
 
-import com.ds.www.domain.Orientation;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -20,8 +18,8 @@ public class InputExtractor {
         return input.toString().split("\\n");
     }
 
-    public static String[] getMaxCordinates(String[] maxCordinatesAsStringArray) {
-        return maxCordinatesAsStringArray[0].split(" ");
+    public static String[] getMaxCordinates(String[] lines) {
+        return lines[0].split(" ");
     }
 
     public static int[] getMaxCordinatesAsIntArray(String[] maxCordinatesAsStringArray) {

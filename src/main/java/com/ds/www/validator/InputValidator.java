@@ -30,7 +30,6 @@ public class InputValidator {
 
 
     static boolean isValidCordinates(String[] cordinates) {
-        boolean result = false;
         for (String s : cordinates) {
                if(s.equals(" ") && Integer.parseInt(s) > 50 ){
                 return false;
@@ -45,7 +44,6 @@ public class InputValidator {
         int length = 0;
         for (String instruction : instructions) {
             length = instruction.length();
-            LOGGER.info("Length of Instruction read is "+length);
             if(length >= 100) {
                 return false;
             }else{
