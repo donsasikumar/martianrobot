@@ -3,7 +3,7 @@
 Martian Robot moves around mars following instructions from Earth.
 
 This project was implemented using TDD. 
-MartianRobot is the main class. Here is how you input ending with an exit instruction.
+MartianRobot is the main class. This is how you run the application. Please provide input in new lines and the last line should have an exit instruction.
 
 5 3
 
