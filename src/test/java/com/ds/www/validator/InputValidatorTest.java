@@ -7,15 +7,26 @@ import java.io.*;
 
 public class InputValidatorTest {
 
+    @Test
+    public void test_isInputValid() throws IOException {
+        String sampleInput = "5 3\n"
+                + "1 1 E\n"
+                + "RFRFRFRF\n"
+                +"exit";
+        String[] lines = InputExtractor.readInputLines(new InputStreamReader(new ByteArrayInputStream(sampleInput.getBytes())));
+        assert InputValidator.isInputValid(lines);
+
+    }
 
     @Test
     public void test_isValidCordinates() throws IOException {
         String sampleInput = "5 3\n"
                 + "1 1 E\n"
-                + "RFRFRFRF";
+                + "RFRFRFRF\n"
+                +"exit";
         String[] lines = InputExtractor.readInputLines(new InputStreamReader(new ByteArrayInputStream(sampleInput.getBytes())));
         String[] maxCordinates =  InputExtractor.getMaxCordinates(lines);
-        String[] startCordinates = InputExtractor.getInitialCordinates(lines);
+        String[] startCordinates = InputExtractor.getInitialCordinatesAndOrientation(lines);
 
         assert InputValidator.isValidCordinates(maxCordinates);
         for(String s : startCordinates){
@@ -29,7 +40,8 @@ public class InputValidatorTest {
                 + "1 1 E\n"
                 + "RFRFRFRF\n"
                 + "2 2 E\n"
-                + "FFRR";
+                + "FFRR\n"
+                +"exit";
         String[] lines = InputExtractor.readInputLines(new InputStreamReader(new ByteArrayInputStream(sampleInput.getBytes())));
         String[] instructions = InputExtractor.getInstructions(lines);
         assert instructions[0].equals("RFRFRFRF");
@@ -42,7 +54,8 @@ public class InputValidatorTest {
                 + "1 1 E\n"
                 + "RFRFRFRF\n"
                 + "2 2 E\n"
-                + "FFRR";
+                + "FFRR\n"
+                +"exit";
         String[] lines = InputExtractor.readInputLines(new InputStreamReader(new ByteArrayInputStream(sampleInput.getBytes())));
         String[] instructions = InputExtractor.getInstructions(lines);
         assert instructions.length == 2;
@@ -55,7 +68,8 @@ public class InputValidatorTest {
                 + "1 1 E\n"
                 + "RFRFRFRF\n"
                 + "2 2 E\n"
-                + "FFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRF";
+                + "FFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRRFFRF\n"
+                +"exit";
         String[] lines = InputExtractor.readInputLines(new InputStreamReader(new ByteArrayInputStream(sampleInput.getBytes())));
         String[] instructions = InputExtractor.getInstructions(lines);
         assert !InputValidator.isInstructionLengthValid(instructions);

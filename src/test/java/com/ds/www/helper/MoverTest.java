@@ -24,31 +24,7 @@ public class MoverTest {
         assert Mover.moveLeft(Orientation.WEST).equals(Orientation.SOUTH);
     }
 
-    @Test
-    public void testMoveForward_North(){
-        int[] arr = Mover.moveForwardWithCordinates(1,1,Orientation.NORTH);
-        assert arr.length==2;
-        assert Arrays.stream(arr).anyMatch(i -> arr[0] == 1 || arr[1] == 2);
-    }
-    @Test
-    public void testMoveForward_South(){
-        int[] arr = Mover.moveForwardWithCordinates(1,1,Orientation.SOUTH);
-        assert arr.length==2;
-        assert Arrays.stream(arr).anyMatch(i -> arr[0] == 1 || arr[1] == 0);
-    }
 
-    @Test
-    public void testMoveForward_East(){
-        int[] arr = Mover.moveForwardWithCordinates(1,1,Orientation.EAST);
-        assert arr.length==2;
-        assert Arrays.stream(arr).anyMatch(i -> arr[0] == 2 || arr[1] == 1);
-    }
-    @Test
-    public void testMoveForward_West(){
-        int[] arr = Mover.moveForwardWithCordinates(1,1,Orientation.WEST);
-        assert arr.length==2;
-        assert Arrays.stream(arr).anyMatch(i -> arr[0] == 0 || arr[1] == 1);
-    }
 
 
 }

@@ -27,18 +27,5 @@ public class Mover {
         return orientation;
     }
 
-    static int[] moveForwardWithCordinates(int xCordinate, int yCordinate, Orientation orientation){
-        switch (orientation){
-            case NORTH: yCordinate = yCordinate + 1;
-            break;
-            case SOUTH: yCordinate = yCordinate - 1;
-            break;
-            case EAST: xCordinate = xCordinate + 1;
-            break;
-            case WEST: xCordinate = xCordinate - 1;
-            break;
-            default: break;
-        }
-        return new int[]{xCordinate,yCordinate};
-    }
+
 }
