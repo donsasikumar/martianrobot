@@ -11,12 +11,17 @@ import com.ds.www.validator.PositionValidator;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LineProcessor implements Processor{
+public class LineProcessor implements Processor {
 
+    /**
+     * Process the input lines and returns the new Robot position
+     * @param Input Lines
+     * @return List of Robot positions with Orientation
+     */
+    @Override
     public List<String> processInputLines(String[] lines) {
         List<String> results = new ArrayList<>();
         if (InputValidator.isInputValid(lines)) {
-            Navigator navigator = new Navigator();
             int[] maxCorindates = InputExtractor.getMaxCordinatesAsIntArray(lines);
             String[] initialCordinates = InputExtractor.getInitialCordinatesAndOrientation(lines);
             String[] instructions = InputExtractor.getInstructions(lines);
@@ -29,6 +34,7 @@ public class LineProcessor implements Processor{
         }
         return results;
     }
+
     String processInstruction(int[] maxCorindates, String[] initialPosition, String instruction) {
         int[] currentPosition = new int[]{Integer.parseInt(initialPosition[0]), Integer.parseInt(initialPosition[1])};
         Orientation currentOrientation = Navigator.getOrientation(initialPosition[2]);
@@ -44,19 +50,18 @@ public class LineProcessor implements Processor{
                 currentPosition = newPosition;
                 if (PositionValidator.isLostPosition(currentPosition[0], currentPosition[1], lostPositions)) {
                     isLost = true;
-                }
-                else if (!PositionValidator.isOnGrid(currentPosition[0], currentPosition[1], maxCorindates[0], maxCorindates[1])) {
+                } else if (!PositionValidator.isOnGrid(currentPosition[0], currentPosition[1], maxCorindates[0], maxCorindates[1])) {
                     lostPositions.add(currentPosition[0] + " " + currentPosition[1]);
                     isLost = true;
                 }
             }
         }
         String output = null;
-        if(!isLost) {
-            output = ""+newPosition[0]+" "+ newPosition[1]+" "+ Navigator.getOrientationString(currentOrientation);
+        if (!isLost) {
+            output = "" + newPosition[0] + " " + newPosition[1] + " " + Navigator.getOrientationString(currentOrientation);
             System.out.println(output);
-        }else{
-            output = ""+newPosition[0]+" "+ newPosition[1]+" "+ Navigator.getOrientationString(currentOrientation)+" "+"LOST";
+        } else {
+            output = "" + newPosition[0] + " " + newPosition[1] + " " + Navigator.getOrientationString(currentOrientation) + " " + "LOST";
             System.out.println(output);
         }
 
